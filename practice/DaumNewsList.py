@@ -8,12 +8,12 @@ url = 'https://news.daum.net/breakingnews/digital'
 result = requests.get(url)
 
 doc = BeautifulSoup(result.text, 'html.parser')
-url_list = doc.select('a.link_txt')
+url_list = doc.select('ul.list_news2 a.link_txt')
 print(len(url_list))
 for i, url in enumerate(url_list):
-    print('■■ NEWS → {}번'■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■'.format(i+1)
+    print('■■ NEWS → {}번■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■'.format(i+1))
     new_url = url['href']
-    print('# URL: '.format(new_url))
+    print('# URL:{} '.format(new_url))
     result = requests.get(new_url)
     doc = BeautifulSoup(result.text, 'html.parser')
     title = doc.select('h3.tit_view')[0].get_text()
