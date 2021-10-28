@@ -14,7 +14,7 @@ result = requests.get(url)
 doc = BeautifulSoup(result.text, 'html.parser')
 title = doc.select('h3.tit_view')[0].get_text()
 contents = doc.select('section p')
-
+print(contents)
 contents.pop(-1) # 기자 정보 삭제
 content = '' # 본문 총합
 for info in contents:
